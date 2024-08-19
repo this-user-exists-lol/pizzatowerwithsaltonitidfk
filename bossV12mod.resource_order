@@ -1,0 +1,9 @@
+{
+  "FolderOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"spr_player_lungehit","order":2,"path":"sprites/spr_player_lungehit/spr_player_lungehit.yy",},
+    {"name":"obj_parryhitbox","order":1,"path":"objects/obj_parryhitbox/obj_parryhitbox.yy",},
+    {"name":"spr_parryhitbox","order":3,"path":"sprites/spr_parryhitbox/spr_parryhitbox.yy",},
+    {"name":"spr_grabbump","order":1,"path":"sprites/spr_grabbump/spr_grabbump.yy",},
+  ],
+}
