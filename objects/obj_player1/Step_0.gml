@@ -285,6 +285,9 @@ switch state
         break
     case (96 << 0):
         scr_player_faceplant()
+		break
+    case (97 << 0):
+        scr_player_parry()
         break
 }
 
@@ -294,6 +297,16 @@ if (wallclingcooldown < 10)
     wallclingcooldown++
 if (global.combo >= 3 && state != (53 << 0))
     supercharged = 1
+with obj_parryhitbox
+{
+	if parrying == 1
+	{
+		obj_player1.movespeed = 7
+		obj_player1.state = (97 <<0)
+		obj_player1.sprite_index = spr_player_parry1
+		obj_player1.image_index = 0
+	}
+}
 if ((!instance_exists(superchargedeffectid)) && supercharged == 1)
 {
     with (instance_create(x, y, obj_superchargeeffect))

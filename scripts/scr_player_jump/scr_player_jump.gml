@@ -301,5 +301,6 @@ function scr_player_jump()
 	        sprite_index = spr_taunt
 	    }
 	    instance_create(x, y, obj_taunteffect)
+		instance_create(x, y, obj_parryhitbox)
 	}
 }

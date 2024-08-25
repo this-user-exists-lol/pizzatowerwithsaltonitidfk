@@ -134,6 +134,7 @@ function scr_player_mach2()
 	        sprite_index = spr_taunt
 	    }
 	    instance_create(x, y, obj_taunteffect)
+		instance_create(x, y, obj_parryhitbox)
 	}
 	if (((!key_attack) && move != xscale && grounded) || (character == "S" && move == 0 && grounded))
 	{

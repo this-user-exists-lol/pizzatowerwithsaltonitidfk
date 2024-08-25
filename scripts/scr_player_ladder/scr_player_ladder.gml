@@ -38,11 +38,11 @@ function scr_player_ladder()
 	crouchslideAnim = 1
 	crouchAnim = 1
 	machhitAnim = 1
-	if ((!(place_meeting(x, y, obj_ladder))) && (!(place_meeting(x, y, obj_stairs))))
+	if ((!(place_meeting(x, y, obj_ladder))))
 	{
 		landAnim = 0
 		jumpAnim = 0
-		state = states.normal
+		state = (0 << 0)
 		image_index = 0
 		vsp = 0
 	}
@@ -51,7 +51,7 @@ function scr_player_ladder()
 		sprite_index = spr_jump
 		ladderbuffer = 20
 		jumpAnim = 1
-		state = states.jump
+		state = (60 << 0)
 		if key_down
 			vsp = 5
 		else
@@ -60,7 +60,7 @@ function scr_player_ladder()
 	}
 	if (key_down && grounded && (!(place_meeting(x, y, obj_platform))))
 	{
-		state = states.key_jump
+		state = (60 << 0)
 		image_index = 0
 	}
 	exit;

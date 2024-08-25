@@ -1,6 +1,7 @@
-targetRoom = hub_room1
+targetRoom = tower_1
 global.collect = 0
 global.collectN = 0
+global.panic = 0
 with (obj_tv)
 {
     shownranka = 0

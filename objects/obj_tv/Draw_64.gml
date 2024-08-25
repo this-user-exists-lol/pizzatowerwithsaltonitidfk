@@ -20,5 +20,5 @@ if (tvsprite == spr_tvdefault && room != strongcold_endscreen && global.miniboss
 }
 else if (global.miniboss == 1)
     draw_text(832, 60, string_hash_to_newline(global.boxhp))
-if instance_exists(obj_pizzaball)
+
     draw_text(832, 300, string_hash_to_newline(((string(global.golfhit) + " ") + "GOLF HIT")))

@@ -24,7 +24,7 @@ if (global.panic == 0 && global.snickchallenge == 0)
             pausedmusic = 107
         }
     }
-    if (string_letters(roomname) == "hubroom" || string_letters(roomname) == "Titlescreen" || string_letters(roomname) == "halloweenentrance")
+    if (string_letters(roomname) == "tower" || string_letters(roomname) == "Titlescreen" || string_letters(roomname) == "halloweenentrance")
     {
         if (!audio_is_playing(mu_hub))
         {

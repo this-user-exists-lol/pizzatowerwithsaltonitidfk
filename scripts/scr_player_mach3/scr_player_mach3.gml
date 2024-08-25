@@ -433,6 +433,7 @@ function scr_player_mach3()
 	        sprite_index = spr_taunt
 	    }
 	    instance_create(x, y, obj_taunteffect)
+		instance_create(x, y, obj_parryhitbox)
 	}
 	if (!instance_exists(chargeeffectid))
 	{

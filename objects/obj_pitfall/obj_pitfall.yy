@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_pizzaportalentrance",
-    "path": "sprites/spr_pizzaportalentrance/spr_pizzaportalentrance.yy",
+    "name": "spr_verticalhallway",
+    "path": "sprites/spr_verticalhallway/spr_verticalhallway.yy",
   },
   "spriteMaskId": null,
   "visible": true,
