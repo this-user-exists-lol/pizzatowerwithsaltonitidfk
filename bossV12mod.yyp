@@ -4,6 +4,7 @@
   "name": "bossV12mod",
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
+    {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"musicgroup1","targets":-1,},
   ],
   "configs": {
     "children": [],

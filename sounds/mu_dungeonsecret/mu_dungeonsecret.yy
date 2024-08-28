@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "mu_dungeonsecret",
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "musicgroup1",
+    "path": "audiogroups/musicgroup1",
   },
   "bitDepth": 1,
   "bitRate": 128,
