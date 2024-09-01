@@ -2,6 +2,8 @@ if (other.object_index == obj_player1)
     global.collect += 25
 else
     global.collectN += 25
+if global.combo > 0
+	global.combotime += 9
 with (instance_create(x, y, obj_smallnumber))
     number = "25"
 if audio_is_playing(sfx_collecttopping)

@@ -121,6 +121,7 @@ else if (global.combo != 0 && global.combotime != 0 && (tvsprite == spr_tvdefaul
 }
 else if (global.combotime == 0 && tvsprite == spr_tvcombo)
 {
+	global.gotprank = 0
     tvsprite = spr_tvcomboresult
     image_index = imageindexstore
     alarm[0] = 50

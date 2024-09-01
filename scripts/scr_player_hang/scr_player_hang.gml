@@ -10,6 +10,7 @@ function scr_player_hang()
 	    scr_soundeffect(sfx_jump)
 	    scr_soundeffect(sfx_woosh)
 	    jumpstop = 0
+		pogochargeactive = 1
 	    vsp = -15
 	    state = (60 << 0)
 	    sprite_index = spr_playerN_noisebombspinjump

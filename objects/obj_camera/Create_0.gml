@@ -14,6 +14,7 @@ shake_mag = 0
 shake_mag_acc = 0
 zoom = 0
 chargecamera = 0
+bigcollectcount = 0
 alpha = 1
 zoomh = 540
 zoomw = 960

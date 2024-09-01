@@ -168,38 +168,30 @@ function scr_player_punch()
 	            vsp = -9
 	        }
 	        if (scr_solid((x + 1), y) && xscale == 1 && (!(place_meeting((x + sign(hsp)), y, obj_slope))) && (!(place_meeting((x + xscale), y, obj_destructibles))))
-	        {
-	            scr_soundeffect(sfx_bumpwall)
-	            grav = 0.5
-	            movespeed = 0
-	            state = (74 << 0)
-	            hsp = -2.5
-	            vsp = -3
-	            mach2 = 0
-	            image_index = 0
-	            machslideAnim = 1
-	            machhitAnim = 0
-	            instance_create((x + 10), (y + 10), obj_bumpeffect)
+			{
+		        scr_soundeffect(sfx_step)
+		        state = (77 << 0)
+		        sprite_index = spr_playerN_wallclingstart
+		        image_index = 0
+		        xscale *= -1
+		        vsp = 0
+		        doublejump = 0
 	        }
 	        if (scr_solid((x - 1), y) && xscale == -1 && (!(place_meeting((x + sign(hsp)), y, obj_slope))) && (!(place_meeting((x + xscale), y, obj_destructibles))))
-	        {
-	            scr_soundeffect(sfx_bumpwall)
-	            grav = 0.5
-	            movespeed = 0
-	            state = (74 << 0)
-	            hsp = 2.5
-	            vsp = -3
-	            mach2 = 0
-	            image_index = 0
-	            machslideAnim = 1
-	            machhitAnim = 0
-	            instance_create((x - 10), (y + 10), obj_bumpeffect)
+		    {
+		        scr_soundeffect(sfx_step)
+		        state = (77 << 0)
+		        sprite_index = spr_playerN_wallclingstart
+		        image_index = 0
+		        xscale *= -1
+		        vsp = 0
+		        doublejump = 0
 	        }
 	        if (key_attack2 && character == "N" && pogochargeactive == 0)
 	        {
-	            sprite_index = spr_playerN_pogostart
 	            image_index = 0
-	            state = (32 << 0)
+	            state = (72 << 0)
+				vsp = -5
 	            pogospeed = 8
 	        }
 	        if ((!instance_exists(obj_slidecloud)) && grounded && movespeed > 5)

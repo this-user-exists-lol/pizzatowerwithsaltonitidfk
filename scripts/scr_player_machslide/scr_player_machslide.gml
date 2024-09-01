@@ -7,12 +7,14 @@ function scr_player_machslide()
 	else if place_meeting(x, (y + 1), obj_railh2)
 	    hsp = ((xscale * movespeed) + 5)
 	move = (key_right + key_left)
+	if (character == "N" && sprite_index == spr_mach3boost)
+		vsp = 1
 	if (movespeed >= 0)
 	{
 	    if (character == "P")
 	        movespeed -= 0.4
 	    else
-	        movespeed -= 0.2
+	        movespeed -= 0.5
 	}
 	if (sprite_index == spr_machslidestart && floor(image_index) == (image_number - 1))
 	    sprite_index = spr_machslide
@@ -30,6 +32,7 @@ function scr_player_machslide()
 	{
 	    hsp = ((-xscale) * 2.5)
 	    vsp = -4
+		grav = 0.5
 	    state = (74 << 0)
 	    image_index = 4
 	}
@@ -38,15 +41,20 @@ function scr_player_machslide()
 	    hsp = 0
 	    image_index = 0
 	    xscale *= -1
+		grav = 0.5
 	    movespeed = 8
 	    state = (72 << 0)
 	}
 	if (floor(image_index) == (image_number - 1) && sprite_index == spr_mach3boost)
 	{
 	    hsp = 0
-	    sprite_index = spr_mach4
+		if character == "P"
+			sprite_index = spr_mach4
+		else
+			sprite_index = spr_playerN_jetpackboost
 	    image_index = 0
 	    xscale *= -1
+		grav = 0.5
 	    movespeed = 12
 	    state = (93 << 0)
 	}

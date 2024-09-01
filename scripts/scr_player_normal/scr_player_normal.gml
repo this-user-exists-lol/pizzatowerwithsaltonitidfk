@@ -187,16 +187,26 @@ function scr_player_normal()
 	}
 	if (key_jump && grounded && (!key_down))
 	{
-	    scr_soundeffect(sfx_jump)
-	    sprite_index = spr_jump
-	    if (shotgunAnim == 1)
-	        sprite_index = spr_shotgunjump
-	    with (instance_create(x, y, obj_highjumpcloud2))
-	        image_xscale = other.xscale
-	    vsp = -11
-	    state = (60 << 0)
-	    image_index = 0
-	    jumpAnim = 1
+		if !key_up
+		{
+		    scr_soundeffect(sfx_jump)
+		    sprite_index = spr_jump
+		    if (shotgunAnim == 1)
+		        sprite_index = spr_shotgunjump
+		    with (instance_create(x, y, obj_highjumpcloud2))
+		        image_xscale = other.xscale
+		    vsp = -11
+		    state = (60 << 0)
+		    image_index = 0
+		    jumpAnim = 1
+		}
+		else if (key_up && fightball == 0)
+		{
+			sprite_index = spr_superjumpprep
+			state = (67 << 0)
+			hsp = 0
+			image_index = 0
+		}
 	}
 	if (grounded && input_buffer_jump < 8 && (!key_down) && (!key_attack) && vsp > 0)
 	{
@@ -323,9 +333,11 @@ function scr_player_normal()
 	}
 	if (key_attack && character == "N" && pogochargeactive == 0 && (!key_slap2) && pizzapepper == 0)
 	{
-	    sprite_index = spr_playerN_pogostart
+	    movespeed = 6
+	    sprite_index = spr_mach1
+	    jumpAnim = 1
+	    state = (71 << 0)
 	    image_index = 0
-	    state = (32 << 0)
 	}
 	if (character == "S" && move != 0 && (!(place_meeting((x + xscale), y, obj_solid))))
 	{

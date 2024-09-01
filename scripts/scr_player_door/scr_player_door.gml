@@ -10,6 +10,7 @@ function scr_player_door()
 	crouchslideAnim = 1
 	crouchAnim = 1
 	machhitAnim = 0
+	global.combopause = 1
 	image_speed = 0.35
 	if (floor(image_index) == (image_number - 1))
 	    image_speed = 0

@@ -1,6 +1,7 @@
 var roomname = string_letters(room_get_name(room))
 if (place_meeting(x, y, obj_player) && sprite_index == spr_pizzaboxunopen)
 {
+	global.combotime = 50
     ds_list_add(global.saveroom, id)
     if (!audio_is_playing(sfx_collecttoppin))
         scr_soundeffect(sfx_collecttoppin)

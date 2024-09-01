@@ -1,6 +1,7 @@
 if (ds_list_find_index(global.baddieroom, id) == -1)
 {
     instance_create(x, y, obj_bombexplosion)
+	global.combotime = 50
     global.miniboss = 0
     ds_list_add(global.baddieroom, id)
     instance_destroy(obj_baddiespawner)

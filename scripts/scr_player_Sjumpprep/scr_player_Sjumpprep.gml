@@ -115,5 +115,10 @@ function scr_player_Sjumpprep()
 	}
 	
 	if (!audio_is_playing(superjumpholdsnd))
-	    superjumpholdsnd = audio_play_sound(sfx_superjumphold, 1, false)
+	{
+		if ((character == "P") || (character == "N" && (sprite_index == spr_superjumpprep)))
+			superjumpholdsnd = audio_play_sound(sfx_superjumphold, 1, false)
+		else if (character == "N" && sprite_index == spr_playerN_jetpackstart)
+			superjumpholdsnd = audio_play_sound(sfx_jetpackstart, 1, false)
+	}
 }

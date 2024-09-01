@@ -2,6 +2,8 @@ if (obj_player1.spotlight == 1)
     player = obj_player1
 else
     player = obj_player2
+if bigcollectcount >= 0
+	bigcollectcount--
 if (global.coop == 1)
 {
     if (obj_player1.spotlight == 1)

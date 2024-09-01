@@ -1,4 +1,5 @@
 var hall = id
+global.roomchanged = 1
 with (other)
 {
     if (!other.savedposition)

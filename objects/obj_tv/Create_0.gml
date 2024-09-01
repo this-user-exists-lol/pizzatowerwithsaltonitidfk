@@ -8,6 +8,7 @@ xi = 500
 yi = 600
 imageindexstore = 0
 once = 0
+global.gotprank = 0
 global.hurtcounter = 0
 global.hurtmilestone = 3
 alpha = 1

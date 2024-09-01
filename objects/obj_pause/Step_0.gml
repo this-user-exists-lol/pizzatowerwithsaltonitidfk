@@ -150,7 +150,7 @@ if (pause == 1)
             obj_player.targetDoor = "A"
             if instance_exists(obj_player2)
                 obj_player2.targetDoor = "A"
-            room = hub_room1
+            room = obj_player1.backtohubroom
         }
     }
     if (key_jump2 && selected == 0)

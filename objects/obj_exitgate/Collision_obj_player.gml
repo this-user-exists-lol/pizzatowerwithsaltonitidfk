@@ -4,6 +4,7 @@ if (image_index == 1 && global.panic == 0)
     {
         if (state == (63 << 0) && floor(image_index) == (image_number - 2))
         {
+			global.roomchanged = 0
             scr_soundeffect(sfx_groundpound)
             with (obj_player1)
             {

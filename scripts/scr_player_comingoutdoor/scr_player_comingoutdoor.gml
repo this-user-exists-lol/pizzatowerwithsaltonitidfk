@@ -18,6 +18,7 @@ function scr_player_comingoutdoor()
 	    start_running = 1
 	    movespeed = 0
 	    state = (0 << 0)
+		global.combopause = 0
 	    image_alpha = 1
 	    c = 0
 	    image_blend = make_colour_hsv(0, 0, 255)

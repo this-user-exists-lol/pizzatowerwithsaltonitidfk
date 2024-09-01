@@ -34,5 +34,5 @@
     "path": "sprites/spr_parryhitbox/spr_parryhitbox.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

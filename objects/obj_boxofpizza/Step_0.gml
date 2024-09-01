@@ -6,6 +6,7 @@ with (obj_player)
         {
             other.depth = -10
             scr_soundeffect(sfx_box)
+			global.roomchanged = 1
             obj_player1.box = 1
             obj_player2.box = 1
             mach2 = 0

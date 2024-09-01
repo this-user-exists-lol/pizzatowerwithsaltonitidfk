@@ -1,3 +1,4 @@
+global.roomchanged = 1
 with (other.id)
 {
     x = other.x

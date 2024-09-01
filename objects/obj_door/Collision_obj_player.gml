@@ -6,6 +6,7 @@ if (!(place_meeting(x, y, obj_doorblocked)))
         {
             obj_player1.lastroom = room
             obj_player2.lastroom = room
+			global.roomchanged = 1
             scr_soundeffect(sfx_door)
             obj_camera.chargecamera = 0
             ds_list_add(global.saveroom, id)

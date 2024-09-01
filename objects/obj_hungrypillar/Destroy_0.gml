@@ -24,7 +24,8 @@ if (ds_list_find_index(global.saveroom, id) == -1 && global.snickchallenge == 0)
     instance_destroy()
     with (instance_create(x, y, obj_sausageman_dead))
         sprite_index = spr_hungrypillar_dead
-    scr_soundeffect(sfx_killenemy)
+    scr_soundeffect(sfx_thatfuckinduuuuuuuunnnnsoundeffect)
+	instance_create(x, y, obj_bossdefeatflash)
     instance_create(x, (y + 600), obj_itspizzatime)
     global.panic = 1
     switch room

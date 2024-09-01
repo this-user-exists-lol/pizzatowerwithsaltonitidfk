@@ -6,7 +6,9 @@ if (player == 1)
 if (player == 2)
 {
     if (sprite_index == sprgot && obj_player2.state != (24 << 0))
+	{
         instance_destroy()
+	}
 }
 if (sprite_index != sprgot)
     sprite_index = spridle
@@ -37,6 +39,12 @@ if (place_meeting(x, y, obj_player1) && player == 0)
             obj_tv.message = "YOU GOT A TOWER SECRET TREASURE!!!"
             obj_tv.alarm[0] = 200
             other.player = 1
+			global.combopause = 1
+			var voiceline = random_range(1, 100)
+			if (voiceline >= 0)
+			{
+				scr_soundeffect(choose (sfx_peppositive1, sfx_peppositive2))
+			}
             ini_close()
         }
     }

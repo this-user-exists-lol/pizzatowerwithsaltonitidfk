@@ -1,8 +1,6 @@
 function scr_player_climbwall()
 {
-	switch character
 	{
-	    case "P":
 	        if (windingAnim < 200)
 	            windingAnim++
 	        move = (key_left + key_right)
@@ -34,7 +32,10 @@ function scr_player_climbwall()
 	            if (movespeed >= 12 && global.coop == 0)
 	            {
 	                state = (93 << 0)
-	                sprite_index = spr_mach4
+					if character == "P"
+						sprite_index = spr_mach4
+					else
+						sprite_index = spr_playerN_jetpackboost
 	            }
 	        }
 	        if key_jump
@@ -58,32 +59,6 @@ function scr_player_climbwall()
 	        image_speed = 0.6
 	        if (!instance_exists(obj_cloudeffect))
 	            instance_create(x, (y + 43), obj_cloudeffect)
-	        break
-	    case "N":
-	        hsp = 0
-	        if (sprite_index == spr_playerN_wallclingstart && floor(image_index) == (image_number - 1))
-	            sprite_index = spr_playerN_wallcling
-	        if (sprite_index == spr_playerN_wallcling)
-	            vsp = 2
-	        else
-	            vsp = 0
-	        wallclingcooldown = 0
-	        if (floor(image_index) == (image_number - 1) || (!key_jump2))
-	        {
-	            vsp = -15
-	            state = (60 << 0)
-	            sprite_index = spr_playerN_jump
-	            image_index = 0
-	        }
-	        if key_jump
-	        {
-	            vsp = -15
-	            state = (60 << 0)
-	            sprite_index = spr_playerN_jump
-	            image_index = 0
-	        }
-	        image_speed = 0.35
-	        break
 	}
 	
 }

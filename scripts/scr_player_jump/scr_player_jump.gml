@@ -274,9 +274,11 @@ function scr_player_jump()
 	}
 	if (key_attack && character == "N" && pogochargeactive == 0 && (!key_slap2) && pizzapepper == 0)
 	{
-	    sprite_index = spr_playerN_pogostart
+	    movespeed = 6
+	    sprite_index = spr_mach1
+	    jumpAnim = 1
+	    state = (71 << 0)
 	    image_index = 0
-	    state = (32 << 0)
 	}
 	if (floor(image_index) == (image_number - 1))
 	    jumpAnim = 0

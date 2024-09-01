@@ -9,6 +9,8 @@ if (global.coop == 1)
     scr_changetoppings()
 if (state == (48 << 0))
     state = (0 << 0)
+if obj_player1.state != (63 << 0)
+	global.combopause = 0
 savedhallwaydirection = hallwaydirection
 savedhallway = hallway
 savedvhallwaydirection = vhallwaydirection

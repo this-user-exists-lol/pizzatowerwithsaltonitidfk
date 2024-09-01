@@ -46,7 +46,7 @@ function scr_player_Sjump()
 	    state = (95 << 0)
 	    machhitAnim = 0
 	}
-	if (character == "N" && key_jump2)
+	if (character == "S" && key_jump2)
 	{
 	    scr_soundeffect(sfx_jump)
 	    scr_soundeffect(sfx_woosh)

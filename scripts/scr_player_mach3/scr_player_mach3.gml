@@ -280,11 +280,11 @@ function scr_player_mach3()
 	        hsp = (xscale * movespeed)
 	        move = (key_right + key_left)
 	        if (fightball == 0)
-	            vsp = 0
+	            vsp = 1
 	        if (key_up && fightball == 0)
-	            vsp = -3
+	            vsp = -10
 	        if (key_down && fightball == 0)
-	            vsp = 3
+	            vsp = 10
 	        if (movespeed < 24 && move == xscale)
 	        {
 	            movespeed += 0.1
@@ -307,11 +307,19 @@ function scr_player_mach3()
 	        }
 	        else if (movespeed > 12 && move != xscale && pizzapepper == 0)
 	            movespeed -= 0.1
+	        if (key_up && key_jump2 && fightball == 0)
+	        {
+	            sprite_index = spr_superjumpprep
+	            state = (67 << 0)
+	            hsp = 0
+	            image_index = 0
+	        }
 	        if (key_attack2 && character == "N" && fightball == 0)
 	        {
-	            sprite_index = spr_playerN_pogostart
+	            sprite_index = spr_playerN_noisebombspinjump
 	            image_index = 0
-	            state = (32 << 0)
+	            state = (72 << 0)
+				pogochargeactive = 1
 	            pogospeed = movespeed
 	        }
 	        if (fightball == 0)
@@ -323,6 +331,13 @@ function scr_player_mach3()
 	            }
 	            else if (movespeed <= 20 && sprite_index == spr_crazyrun)
 	                sprite_index = spr_playerN_jetpackboost
+	        }
+			if (move == (-xscale) && grounded && fightball == 0)
+	        {
+	            scr_soundeffect(sfx_machslideboost)
+	            sprite_index = spr_mach3boost
+	            state = (73 << 0)
+	            image_index = 0
 	        }
 	        if (key_slap2 && character == "N" && fightball == 0)
 	        {
@@ -337,9 +352,12 @@ function scr_player_mach3()
 	            scr_soundeffect(sfx_woosh)
 	            jumpstop = 0
 	            vsp = -15
-	            state = (60 << 0)
-	            sprite_index = spr_playerN_noisebombspinjump
+				pogochargeactive = 1
+	            state = (72 << 0)
+	            sprite_index = spr_mach2jump
 	            image_index = 0
+				with instance_create(x, y, obj_sausageman_dead)
+						sprite_index = spr_jetpackdebris
 	            with (instance_create(x, y, obj_jumpdust))
 	                image_xscale = other.xscale
 	        }
@@ -368,36 +386,79 @@ function scr_player_mach3()
 	            }
 	            vsp = -11
 	        }
-	        if (scr_solid((x + sign(hsp)), y) && ((!(place_meeting((x + sign(hsp)), y, obj_slope))) || place_meeting((x + sign(hsp)), y, obj_solid)) && (!(place_meeting((x + sign(hsp)), y, obj_metalblock))) && (!(place_meeting((x + sign(hsp)), y, obj_destructibles))) && (!(place_meeting((x + sign(hsp)), y, obj_hungrypillar))))
+	        if (scr_solid((x + sign(hsp)), y) && grounded && ((!(place_meeting((x + sign(hsp)), y, obj_slope))) || place_meeting((x + sign(hsp)), y, obj_solid)) && (!(place_meeting((x + sign(hsp)), y, obj_metalblock))) && (!(place_meeting((x + sign(hsp)), y, obj_destructibles))) && (!(place_meeting((x + sign(hsp)), y, obj_hungrypillar))))
 	        {
-	            sprite_index = spr_hitwall
-	            scr_soundeffect(sfx_groundpound)
-	            scr_soundeffect(sfx_bumpwall)
-	            with (obj_camera)
+			    wallspeed = movespeed
+			    state = (18 << 0)
+	        }
+	        else if (scr_solid((x + sign(hsp)), y) && !grounded && ((!(place_meeting((x + sign(hsp)), y, obj_slope))) || place_meeting((x + sign(hsp)), y, obj_solid)) && (!(place_meeting((x + sign(hsp)), y, obj_metalblock))) && (!(place_meeting((x + sign(hsp)), y, obj_destructibles))) && (!(place_meeting((x + sign(hsp)), y, obj_hungrypillar))))
+	        {
+	            if (fightball == 0)
 	            {
-	                shake_mag = 20
-	                shake_mag_acc = (40 / room_speed)
-	            }
-	            hsp = 0
-	            image_speed = 0.35
-	            with (obj_baddie)
-	            {
-	                if point_in_rectangle(x, y, __view_get((0 << 0), 0), __view_get((1 << 0), 0), (__view_get((0 << 0), 0) + __view_get((2 << 0), 0)), (__view_get((1 << 0), 0) + __view_get((3 << 0), 0)))
+	                sprite_index = spr_hitwall
+	                scr_soundeffect(sfx_groundpound)
+	                scr_soundeffect(sfx_bumpwall)
+	                with (obj_camera)
 	                {
-	                    stun = 1
-	                    alarm[0] = 200
-	                    ministun = 0
-	                    vsp = -5
-	                    hsp = 0
+	                    shake_mag = 20
+	                    shake_mag_acc = (40 / room_speed)
 	                }
+	                hsp = 0
+	                image_speed = 0.35
+	                with (obj_baddie)
+	                {
+	                    if point_in_rectangle(x, y, __view_get((0 << 0), 0), __view_get((1 << 0), 0), (__view_get((0 << 0), 0) + __view_get((2 << 0), 0)), (__view_get((1 << 0), 0) + __view_get((3 << 0), 0)))
+	                    {
+	                        stun = 1
+	                        alarm[0] = 200
+	                        ministun = 0
+	                        vsp = -5
+	                        hsp = 0
+	                    }
+	                }
+	                flash = 0
+	                state = (74 << 0)
+	                hsp = 2.5
+	                vsp = -3
+	                mach2 = 0
+	                image_index = 0
+	                instance_create((x - 10), (y + 10), obj_bumpeffect)
 	            }
-	            flash = 0
-	            state = (74 << 0)
-	            hsp = 2.5
-	            vsp = -3
-	            mach2 = 0
-	            image_index = 0
-	            instance_create((x - 10), (y + 10), obj_bumpeffect)
+	            else if (fightball == 1)
+	            {
+	                with (obj_player)
+	                {
+	                    sprite_index = spr_hitwall
+	                    scr_soundeffect(sfx_groundpound)
+	                    scr_soundeffect(sfx_bumpwall)
+	                    with (obj_camera)
+	                    {
+	                        shake_mag = 20
+	                        shake_mag_acc = (40 / room_speed)
+	                    }
+	                    hsp = 0
+	                    image_speed = 0.35
+	                    with (obj_baddie)
+	                    {
+	                        if point_in_rectangle(x, y, __view_get((0 << 0), 0), __view_get((1 << 0), 0), (__view_get((0 << 0), 0) + __view_get((2 << 0), 0)), (__view_get((1 << 0), 0) + __view_get((3 << 0), 0)))
+	                        {
+	                            stun = 1
+	                            alarm[0] = 200
+	                            ministun = 0
+	                            vsp = -5
+	                            hsp = 0
+	                        }
+	                    }
+	                    flash = 0
+	                    state = (74 << 0)
+	                    hsp = -2.5
+	                    vsp = -3
+	                    mach2 = 0
+	                    image_index = 0
+	                    instance_create((x + 10), (y + 10), obj_bumpeffect)
+	                }
+	                fightball = 0
+	            }
 	        }
 	        break
 	}

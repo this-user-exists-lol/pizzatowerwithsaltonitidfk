@@ -66,15 +66,20 @@ function scr_player_mach2()
 	        machhitAnim = 0
 	        state = (93 << 0)
 	        flash = 1
-	        if (sprite_index != spr_rollgetup)
-	            sprite_index = spr_mach4
+			if character == "P"
+			{
+				if (sprite_index != spr_rollgetup)
+				    sprite_index = spr_mach4
+			}
+			else
+				sprite_index = spr_playerN_jetpackboost
 	        with (instance_create(x, y, obj_jumpdust))
 	            image_xscale = other.xscale
 	    }
 	}
 	if key_jump
 	    input_buffer_jump = 0
-	if (key_down && (!(place_meeting(x, y, obj_dashpad))))
+	if (key_down && (!(place_meeting(x, y, obj_dashpad)) && (character != "N")))
 	{
 	    with (instance_create(x, y, obj_jumpdust))
 	        image_xscale = other.xscale
@@ -102,16 +107,28 @@ function scr_player_mach2()
 	}
 	if (grounded && floor(image_index) == (image_number - 1) && sprite_index == spr_rollgetup)
 	    sprite_index = spr_mach
-	if ((!grounded) && sprite_index != spr_secondjump2 && sprite_index != spr_mach2jump && sprite_index != spr_mach2jump && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend)
+	if ((!grounded) && sprite_index != spr_secondjump2 && sprite_index != spr_mach2jump && sprite_index != spr_mach2jump && sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend && sprite_index != spr_playerN_jetpackstart)
 	    sprite_index = spr_secondjump1
 	if (floor(image_index) == (image_number - 1) && sprite_index == spr_secondjump1)
 	    sprite_index = spr_secondjump2
 	if (floor(image_index) == (image_number - 1) && sprite_index == spr_walljumpstart)
 	    sprite_index = spr_walljumpend
-	if (key_attack && (!(place_meeting((x + xscale), y, obj_solid))) && character == "S" && grounded)
+	if (pogochargeactive == 1 || (pizzapepper > 0 && character == "N"))
 	{
-	    state = (23 << 0)
-	    movespeed = 0
+	    if key_attack2
+	    {
+	        scr_soundeffect(sfx_noisewoah)
+	        state = (67 << 0)
+	        image_index = 0
+	        if (!key_up)
+	            sprite_index = spr_playerN_jetpackstart
+	        else
+	            sprite_index = spr_superjumpprep
+	        hsp = 0
+	        vsp = 0
+			if (move != 0)
+				xscale = move
+	    }
 	}
 	if key_taunt2
 	{

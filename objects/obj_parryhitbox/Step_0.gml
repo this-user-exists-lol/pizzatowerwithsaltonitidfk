@@ -8,3 +8,4 @@ if obj_player1.state != (53 << 0)
 
 
 
+

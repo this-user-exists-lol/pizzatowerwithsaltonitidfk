@@ -44,6 +44,11 @@ function scr_hurtplayer()
 	                y = obj_player1.y
 	        }
 	        scr_soundeffect(sfx_pephurt)
+			var voiceline = random_range(1, 100)
+			if (voiceline >= 50)
+			{
+				scr_soundeffect(choose (sfx_pepnegative1, sfx_pepnegative2))
+			}
 	        alarm[8] = 60
 	        alarm[7] = 120
 	        hurted = 1

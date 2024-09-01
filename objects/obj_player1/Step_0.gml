@@ -445,12 +445,15 @@ if (angry == 1 && (!instance_exists(angryeffectid)) && state == (0 << 0))
         other.angryeffectid = id
     }
 }
-if (global.combotime > 0)
-    global.combotime -= 0.5
-if (global.combotime == 0 && global.combo != 0)
+if ((global.combotime > 0) && (global.combopause == 0))
+    global.combotime -= 0.15
+if (global.combotime > 50)
+	global.combotime = 50
+if (global.combotime <= 1 && global.combo != 0)
 {
     if (global.combo >= 5)
         scr_soundeffect(sfx_thatsprettygood)
+	global.combotime = 0
     global.combo = 0
 }
 if (input_buffer_jump < 8)
