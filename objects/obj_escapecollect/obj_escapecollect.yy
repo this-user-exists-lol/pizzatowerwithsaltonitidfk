@@ -32,8 +32,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_snickcollectible1",
-    "path": "sprites/spr_snickcollectible1/spr_snickcollectible1.yy",
+    "name": "spr_shroomcollect",
+    "path": "sprites/spr_shroomcollect/spr_shroomcollect.yy",
   },
   "spriteMaskId": {
     "name": "spr_sausagecollect",

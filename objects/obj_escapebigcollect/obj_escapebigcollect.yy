@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_snickcollectible2",
-    "path": "sprites/spr_snickcollectible2/spr_snickcollectible2.yy",
+    "name": "spr_pizzacollect2",
+    "path": "sprites/spr_pizzacollect2/spr_pizzacollect2.yy",
   },
   "spriteMaskId": {
     "name": "spr_pizzacollect1halloween",

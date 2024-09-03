@@ -1,6 +1,5 @@
 if global.panic = 1
 {
-	image_alpha = 0
 	if audio_is_playing(sfx_collecttopping)
 	    audio_stop_sound(sfx_collecttopping)
 	scr_soundeffect(sfx_collecttopping)
@@ -14,5 +13,3 @@ if global.panic = 1
 	    number = "10"
 	instance_destroy()
 }
-else
-	image_alpha = 50

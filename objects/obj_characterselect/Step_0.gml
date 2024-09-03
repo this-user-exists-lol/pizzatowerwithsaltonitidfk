@@ -18,6 +18,8 @@ if (obj_player1.key_jump && selected == 0 && obj_peppinoselect.sprite_index != s
     with (obj_player1)
     {
         character = "P"
+		global.currentcharacter = "Peppino"
+		global.currentcharactericon = "peppino"
         scr_characterspr()
     }
     with (obj_player2)
@@ -41,6 +43,8 @@ if (obj_player1.key_jump && selected == 1 && obj_noiseselect.sprite_index != spr
     with (obj_player1)
     {
         character = "N"
+		global.currentcharacter = "The Noise"
+		global.currentcharactericon = "noise"
         scr_characterspr()
     }
     with (obj_player2)

@@ -20,12 +20,10 @@ if (tvsprite == spr_tvdefault && room != strongcold_endscreen && global.miniboss
 }
 else if (global.miniboss == 1)
     draw_text(832, 60, string_hash_to_newline(global.boxhp))
-draw_text(832, 300, ((string(global.gotprank) + " ") + "P RANK"))
-draw_text(832, 400, ((string(global.roomchanged) + " ") + "ROOM CHANGED"))
 var barxx = -40
 var baryy = -50
-draw_sprite(spr_barpop, 0, (832 + barxx), (250 + baryy))
+draw_sprite(spr_barpop, global.gotprank, (832 + barxx), (250 + baryy))
 var sw = sprite_get_width(spr_barpop)
 var sh = sprite_get_height(spr_barpop)
 var b = (global.combotime / 55)
-draw_sprite_part(spr_barpop, 1, 0, 0, (sw * b), sh, (832 + barxx), (250 + baryy))
+draw_sprite_part(spr_barfill, 1, 0, 0, (sw * b), sh, (832 + barxx), (250 + baryy))
